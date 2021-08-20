@@ -1,0 +1,28 @@
+/*
+\W matches any non-word character
+\W is equivalent to [^A-Za-z0–9_]
+\W matches anything that is not enclosed in the brackets
+*/
+
+function palindrome(str) {
+  // Lowercase the string and use the RegExp to remove unwanted characters from it
+  const myTextLowcase = str.toLowerCase().replace(/[^A-Za-z0-9]/g, '')
+  return isPalindromeWS(myTextLowcase);
+}
+
+function isPalindromeWS(word){
+  const textLen = word.length;
+
+  //Checks if "num" went half way but skips checking middle odd char. Bit shifted here is like division by 2 but to lowest even neighbor division by 2 result. If true then assumes palindrome since its already done. If false evaluates next OR condition.
+  for(let num = 0; num <= textLen >> 1; num++){
+    //Compares all the characters from each part match
+    if(word[num] !== word[textLen - num - 1]){
+      return false; //When the characters don't match anymore
+    }
+  }
+  //The string is a Palindrome
+  return true;
+}
+  
+
+console.log(palindrome("not a palindrome"));
