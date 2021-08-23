@@ -1,0 +1,11 @@
+//13 is the key value
+
+function rot13(str) {
+  return str.toUpperCase().replace(/[A-Z]/g, (cipher) => {
+    let cipherValue = cipher.charCodeAt(0) + 13;
+    
+    return String.fromCharCode((cipherValue - 65) % 26 + 65)}
+    );
+}
+
+rot13("SERR PBQR PNZC");
