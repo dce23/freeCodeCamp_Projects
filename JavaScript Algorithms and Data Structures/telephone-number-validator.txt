@@ -1,0 +1,10 @@
+function telephoneCheck(str) {
+  //For removing dases and spaces (/-| /g, "")
+  //                  first par
+  const validNumber = (/^(1 |1)*(\d{3}|\(\d{3}\))[ -]{0,9}(\d{3})[ -]{0,9}(\d{4}$)/g)
+  //console.log(validNumber);
+  
+  return validNumber.test(str);
+}
+
+telephoneCheck("555-555-5555");
